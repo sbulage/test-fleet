@@ -1,4 +1,5 @@
 defaultNamespace: guestbook
 helm:
-  chart: oci://192.168.122.186:8082/guestbook
+  repo: oci://192.168.122.186:8082/guestbook
+  chart: guestbook
   version: 0.0.1
