@@ -1,3 +1,4 @@
 defaultNamespace: guestbook
 helm:
-  repo: oci://192.168.122.186:8082/sleeper-chart-0.1.0.tgz
+  chat: oci://192.168.122.186:8082/sleeper-chart
+  version: 0.1.0
