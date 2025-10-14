@@ -1,3 +1,3 @@
 defaultNamespace: guestbook
 helm:
-  repo: oci://192.168.122.186:8082/guestbook-0.0.1.tgz
+  chart: oci://192.168.122.186:8082/guestbook-0.0.1.tgz
