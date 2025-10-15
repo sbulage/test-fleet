@@ -1,0 +1,4 @@
+defaultNamespace: sleeper-chart
+helm:
+  chart: oci://192.168.122.186:8082/sleeper-chart
+  version: 0.1.0
