@@ -1,0 +1,7 @@
+helm:
+  repo: http://172.19.0.2:4242
+  chart: config-chart
+  version: 0.1.0
+  values:
+    name: sample-cm-a
+  takeOwnership: true
