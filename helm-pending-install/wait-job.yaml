@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: alpine-wait-job
+  annotations:
+    "helm.sh/hook": pre-install
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: alpine
+        image: alpine
+        command: ["sleep", "3600"]
