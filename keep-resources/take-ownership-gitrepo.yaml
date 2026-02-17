@@ -2,6 +2,7 @@ kind: GitRepo
 apiVersion: fleet.cattle.io/v1alpha1
 metadata:
   name: take-ownership-test
+  namespace: fleet-default
 spec:
   repo: https://github.com/sbulage/test-fleet
   branch: main
