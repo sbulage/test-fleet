@@ -1,3 +1,3 @@
 defaultNamespace: timeout
 helm:
-  timeoutSeconds: 5
+  timeoutSeconds: 1
