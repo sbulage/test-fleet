@@ -1,14 +1,15 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: alpine-wait-job
+  name: preinstall-hang
   annotations:
     "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": before-hook-creation
 spec:
   template:
     spec:
-      restartPolicy: Never
       containers:
-      - name: alpine
-        image: alpine
-        command: ["sleep", "3600"]
+        - name: hang
+          image: busybox
+          command: ["sh", "-c", "sleep 3600"]
+      restartPolicy: Never
