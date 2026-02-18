@@ -1,6 +1,6 @@
 defaultNamespace: config-chart
 helm:
-  repo: http://172.19.0.2:4242
+  repo: http://10.43.249.90:4242
   chart: config-chart
   releaseName: config-chart
   version: 0.1.0
