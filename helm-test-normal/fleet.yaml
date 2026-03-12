@@ -1,6 +1,12 @@
 defaultNamespace: myapp-grafana
+#helm:
+  #releaseName: grafana
+  #chart: grafana
+  #repo: https://grafana.github.io/helm-charts/
+  #version: 11.3.2
+
 helm:
-  releaseName: grafana
-  chart: grafana
-  repo: https://grafana.github.io/helm-charts/
-  version: 11.3.2
+  repo: https://charts.bitnami.com/bitnami
+  chart: nginx
+  version: 15.5.2
+  releaseName: nginx
