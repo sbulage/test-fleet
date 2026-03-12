@@ -2,5 +2,5 @@ defaultNamespace: config-chart
 helm:
   releaseName: fleet-test-configmap-chart
   chart: fleet-test-configmap-chart
-  repo: https://1732-223-233-81-77.ngrok-free.app/test
+  repo: https://1732-223-233-81-77.ngrok-free.app/test/
   version: 0.1.0
