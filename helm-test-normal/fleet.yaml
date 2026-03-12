@@ -1,6 +1,12 @@
 defaultNamespace: myapp-grafana
-helm:
-  releaseName: grafana
-  chart: grafana
-  repo: https://grafana.github.io/helm-charts/
+#helm:
+  #releaseName: grafana
+  #chart: grafana
+  #repo: https://grafana.github.io/helm-charts/
   #version: 11.3.2
+
+helm:
+  repo: https://helm.rapid7.com/cloudsec
+  chart: k8s-guardrails
+  releaseName: k8s-guardrails
+  version: 4.1.18
