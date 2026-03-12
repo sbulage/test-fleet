@@ -1,4 +1,4 @@
-defaultNamespace: myapp-grafana
+defaultNamespace: myapp-nginx
 #helm:
   #releaseName: grafana
   #chart: grafana
