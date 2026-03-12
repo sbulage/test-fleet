@@ -10,3 +10,8 @@ helm:
   chart: nginx
   version: 15.5.2
   releaseName: nginx
+  values:
+    image:
+      registry: docker.io
+      repository: nginx
+      tag: "1.25.3"
