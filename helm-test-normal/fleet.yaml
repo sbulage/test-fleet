@@ -1,22 +1,6 @@
-#defaultNamespace: myapp-grafana
-#helm:
-#  releaseName: grafana
-#  chart: grafana
-#  repo: https://grafana.github.io/helm-charts/
-#  version: 11.3.2
-
-#defaultNamespace: config-chart
-
-#helm:
-#  releaseName: config-chart
-#  chart: config-chart
-#  repo: https://rancher.github.io/fleet/integrationtests/cli/assets/helmrepository
-#  version: 0.1.0
-
-defaultNamespace: nginx-test
-
+defaultNamespace: config-chart
 helm:
-  releaseName: nginx-test
-  chart: nginx
-  repo: https://charts.bitnami.com/bitnami
-  version: 15.9.0
+  releaseName: fleet-test-configmap-chart
+  chart: fleet-test-configmap-chart
+  repo: https://d745-223-233-81-77.ngrok-free.app/test/
+  version: 0.1.0
