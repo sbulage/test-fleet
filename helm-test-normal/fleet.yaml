@@ -6,7 +6,7 @@ defaultNamespace: myapp-grafana
   #version: 11.3.2
 
 helm:
-  repo: https://helm.rapid7.com/cloudsec
+  repo: https://helm.rapid7.com/cloudsec/
   chart: k8s-guardrails
   releaseName: k8s-guardrails
   version: 4.1.18
