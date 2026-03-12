@@ -1,6 +1,14 @@
-defaultNamespace: myapp-grafana
+#defaultNamespace: myapp-grafana
+#helm:
+#  releaseName: grafana
+#  chart: grafana
+#  repo: https://grafana.github.io/helm-charts/
+#  version: 11.3.2
+
+defaultNamespace: config-chart
+
 helm:
-  releaseName: grafana
-  chart: grafana
-  repo: https://grafana.github.io/helm-charts/
-  version: 11.3.2
+  releaseName: config-chart
+  chart: config-chart
+  repo: https://rancher.github.io/fleet/integrationtests/cli/assets/helmrepository
+  version: 0.1.0
