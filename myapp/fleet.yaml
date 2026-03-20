@@ -6,3 +6,4 @@ helm:
   repo: ""
   version: ""
 disableDependencyUpdate: true
+takeOwnership: true
