@@ -4,7 +4,10 @@ description: Sample application
 version: 0.0.0
 appVersion: 0.0.0
 dependencies:
-- name: postgresql
+-name: configmap-chart
+  version: "0.1.0"
+  repository: "oci://ghcr.io/rancher/fleet-test-configmap-chart"
+#- name: postgresql
   # version: "13.4.3"
-  version: "18.5.8"
-  repository: "https://charts.bitnami.com/bitnami"
+  #version: "18.5.8"
+  #repository: "https://charts.bitnami.com/bitnami"
