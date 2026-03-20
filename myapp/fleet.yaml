@@ -1,7 +1,7 @@
 namespace: fleet-deps-simple
 
 helm:
-  releaseName: deps-simple
+  releaseName: myapp
   chart: ""
   repo: ""
   version: ""
