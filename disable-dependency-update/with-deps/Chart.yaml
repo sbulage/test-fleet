@@ -4,9 +4,9 @@ description: Sample application
 version: 0.0.0
 appVersion: 0.0.0
 dependencies:
-  - name: sleeper-chart
-    version: "0.2.0"
-    repository: "https://github.com/rancher/fleet/tree/main/e2e/assets/helmop/sleeper-chart2"
+  - name: config-chart
+    version: "0.1.0"
+    repository: "https://github.com/rancher/fleet/blob/main/integrationtests/cli/assets/helmrepository"
 #- name: postgresql
   # version: "13.4.3"
   #version: "18.5.8"
