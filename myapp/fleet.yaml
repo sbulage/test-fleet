@@ -9,7 +9,7 @@ helm:
   values:
     nginx:
       service:
-        enabled: false
+        type: ClusterIP
       pdb:
         enabled: false
       networkPolicy:
