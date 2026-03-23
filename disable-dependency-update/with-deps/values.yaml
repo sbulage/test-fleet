@@ -1,3 +1,35 @@
 replication: true
 replicas: 1
 serviceType: NodePort
+# Postgres specific 
+postgresql:
+  service:
+    type: ClusterIP
+
+  networkPolicy:
+    enabled: false
+
+  pdb:
+    enabled: false
+
+  metrics:
+    enabled: false
+
+  # Minimal required auth
+  auth:
+    enablePostgresUser: true
+    postgresPassword: "postgres"
+
+  # Fast startup (no persistence)
+  primary:
+    persistence:
+      enabled: false
+
+  # Minimal resources
+  resources:
+    requests:
+      cpu: 10m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
