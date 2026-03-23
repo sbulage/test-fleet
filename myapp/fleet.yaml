@@ -5,4 +5,15 @@ helm:
   chart: ""
   repo: ""
   version: ""
+  # Values are for dependency nginx
+  values:
+    nginx:
+      service:
+        enabled: false
+      pdb:
+        enabled: false
+      networkPolicy:
+        enabled: false
+      ingress:
+        enabled: false
   disableDependencyUpdate: false
