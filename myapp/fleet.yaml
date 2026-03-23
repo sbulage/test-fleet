@@ -16,4 +16,4 @@ helm:
         enabled: false
       ingress:
         enabled: false
-  disableDependencyUpdate: true
+  disableDependencyUpdate: false
