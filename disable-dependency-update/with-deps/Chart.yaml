@@ -3,11 +3,7 @@ name: guestbook-deps-simple
 description: Sample application
 version: 0.0.0
 appVersion: 0.0.0
-dependencies:
-  - name: config-chart
-    version: "0.1.0"
-    repository: "https://github.com/sbulage/test-fleet/tree/main/disable-dependency-update/config-chart/"
-#- name: postgresql
-  # version: "13.4.3"
-  #version: "18.5.8"
-  #repository: "https://charts.bitnami.com/bitnami"
+- name: postgresql
+  version: "13.4.3"
+  version: "18.5.8"
+  repository: "https://charts.bitnami.com/bitnami"
