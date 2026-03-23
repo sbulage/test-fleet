@@ -1,9 +1,8 @@
 namespace: fleet-deps-simple
 
 helm:
-  releaseName: myapp
+  releaseName: guestbook-deps-light
   chart: ""
   repo: ""
   version: ""
-  takeOwnership: true
-  disableDependencyUpdate: true
+  disableDependencyUpdate: false
