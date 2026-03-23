@@ -5,5 +5,4 @@ helm:
   chart: ""
   repo: ""
   version: ""
-  disableDependencyUpdate: true
   takeOwnership: true
