@@ -13,5 +13,5 @@ version: 0.0.0
 appVersion: 0.0.0
 dependencies:
 - name: nginx
-  version: "13.1.5"
+  version: "22.6.8"
   repository: "https://charts.bitnami.com/bitnami"
