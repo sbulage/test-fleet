@@ -1,0 +1,7 @@
+namespace: nginx
+helm:
+  releaseName: nginx
+  chart: "oci://registry-1.docker.io/bitnamicharts/nginx"
+  version: "18.3.4"
+  values:
+    replicaCount: 1
