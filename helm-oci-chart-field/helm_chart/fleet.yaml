@@ -1,7 +1,9 @@
 namespace: nginx
 helm:
   releaseName: nginx
-  chart: "oci://registry-1.docker.io/bitnamicharts/nginx"
-  version: "18.3.4"
+  chart: "oci://ghcr.io/rancher/fleet-test-configmap-chart"
+  version: "0.1.0"
+  force: false
+  timeoutSeconds: 0
   values:
-    replicaCount: 1
+    replicas: 2
