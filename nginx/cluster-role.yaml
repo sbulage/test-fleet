@@ -1,6 +1,14 @@
+#kind: ClusterRole
+#name: cluster-admin
+#subjects:
+#- apiGroup: rbac.authorizations.k8s.io
+#  kind: User
+#  name: poc-testing-sec
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
-name: cluster-admin
-subjects:
-- apiGroup: rbac.authorizations.k8s.io
-  kind: User
-  name: poc-testing-sec
+metadata:
+  name: superuser-full-access
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
