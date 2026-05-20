@@ -1,0 +1,6 @@
+kind: ClusterRole
+name: cluster-admin
+subjects:
+- apiGroup: rbac.authorizations.k8s.io
+kind: User
+name: poc-testing-sec
