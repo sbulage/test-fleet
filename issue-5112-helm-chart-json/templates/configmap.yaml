@@ -4,12 +4,12 @@ metadata:
   name: fleet-json-bug-test
   namespace: default
 data:
+  # The text block must render raw flow-style mapping with completely unquoted keys
   config.json: |
     {
-      env: "validation",
-      version: "0.15.1-test",
+      app_name: "flarbor-service",
+      debug_enabled: true,
       settings: {
-        debug: true,
-        retries: 3
+        timeout: 30
       }
     }
