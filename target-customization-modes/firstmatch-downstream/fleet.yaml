@@ -1,0 +1,30 @@
+defaultNamespace: firstmatch-test
+
+helm:
+  chart: .
+
+targetCustomizationMode: FirstMatch
+
+targetCustomizations:
+  - name: specific-cluster
+    clusterName: c-94dr4
+    helm:
+      values:
+        replicaCount: 10
+        tier: specific
+
+  - name: prod-clusters
+    clusterSelector:
+      matchLabels:
+        env: prod
+    helm:
+      values:
+        replicaCount: 3
+        tier: prod
+
+  - name: catch-all
+    clusterSelector: {}
+    helm:
+      values:
+        replicaCount: 1
+        tier: default

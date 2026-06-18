@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstmatch-test
+  labels:
+    app: firstmatch-test
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: firstmatch-test
+  template:
+    metadata:
+      labels:
+        app: firstmatch-test
+        tier: {{ .Values.tier }}
+    spec:
+      containers:
+      - name: nginx
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        env:
+        - name: TIER
+          value: {{ .Values.tier | quote }}
+        - name: REPLICAS
+          value: {{ .Values.replicaCount | quote }}
