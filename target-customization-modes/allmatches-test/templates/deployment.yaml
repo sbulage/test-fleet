@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: allmatches-test
+  labels:
+    app: allmatches-test
+spec:
+  replicas: {{ .Values.app.replicaCount }}
+  selector:
+    matchLabels:
+      app: allmatches-test
+  template:
+    metadata:
+      labels:
+        app: allmatches-test
+        database-enabled: "{{ .Values.database.enabled }}"
+        cache-enabled: "{{ .Values.cache.enabled }}"
+        metrics-enabled: "{{ .Values.metrics.enabled }}"
+    spec:
+      containers:
+      - name: nginx
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        {{- if .Values.metrics.enabled }}
+        - name: metrics
+          containerPort: {{ .Values.metrics.port }}
+          protocol: TCP
+        {{- end }}
+        env:
+        - name: APP_NAME
+          value: {{ .Values.app.name | quote }}
+        - name: REPLICAS
+          value: {{ .Values.app.replicaCount | quote }}
+        - name: DATABASE_ENABLED
+          value: {{ .Values.database.enabled | quote }}
+        - name: CACHE_ENABLED
+          value: {{ .Values.cache.enabled | quote }}
+        - name: METRICS_ENABLED
+          value: {{ .Values.metrics.enabled | quote }}

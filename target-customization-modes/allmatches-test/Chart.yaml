@@ -1,0 +1,6 @@
+apiVersion: v2
+name: allmatches-test
+description: Test chart for Fleet AllMatches mode validation
+type: application
+version: 0.1.0
+appVersion: "1.0"
