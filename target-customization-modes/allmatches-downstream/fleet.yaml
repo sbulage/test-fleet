@@ -1,0 +1,41 @@
+defaultNamespace: allmatches-test
+
+helm:
+  chart: .
+
+targetCustomizationMode: AllMatches
+
+targetCustomizations:
+  # Base configuration - matches all clusters
+  - name: base
+    clusterSelector: {}
+    helm:
+      values:
+        app:
+          name: allmatches-app
+          replicaCount: 1
+        database:
+          enabled: true
+
+  # Edge configuration - applies when cluster has edge=true label
+  - name: edge-config
+    clusterSelector:
+      matchLabels:
+        edge: "true"
+    helm:
+      values:
+        app:
+          replicaCount: 2
+        cache:
+          enabled: true
+
+  # Monitoring configuration - applies when cluster has monitoring=enabled label
+  - name: monitoring
+    clusterSelector:
+      matchLabels:
+        monitoring: "enabled"
+    helm:
+      values:
+        metrics:
+          enabled: true
+          port: 9090

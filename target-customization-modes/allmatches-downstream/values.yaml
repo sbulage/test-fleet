@@ -1,0 +1,19 @@
+# Default values for allmatches-test
+app:
+  name: allmatches-app
+  replicaCount: 1
+
+database:
+  enabled: false
+
+cache:
+  enabled: false
+
+metrics:
+  enabled: false
+  port: 9090
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "1.21"
