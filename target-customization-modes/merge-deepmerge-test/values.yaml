@@ -1,0 +1,19 @@
+# Default nested structure
+app:
+  name: myapp
+  replicas: 1
+  features:
+    auth: false
+    logging: false
+    monitoring: false
+  resources:
+    limits:
+      memory: 128Mi
+      cpu: 100m
+    requests:
+      memory: 64Mi
+      cpu: 50m
+database:
+  enabled: false
+  host: localhost
+  port: 5432

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: merge-scalar-test
+  labels:
+    app: merge-scalar-test
+data:
+  message: {{ .Values.message | quote }}
+  replicas: {{ .Values.replicaCount | quote }}
+  release-name: {{ .Release.Name | quote }}
+  namespace: {{ .Release.Namespace | quote }}

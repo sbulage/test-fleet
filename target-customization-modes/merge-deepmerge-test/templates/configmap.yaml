@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: merge-deepmerge-test
+  labels:
+    app: merge-deepmerge-test
+data:
+  values.yaml: |
+    app:
+      name: {{ .Values.app.name | quote }}
+      replicas: {{ .Values.app.replicas }}
+      features:
+        auth: {{ .Values.app.features.auth }}
+        logging: {{ .Values.app.features.logging }}
+        monitoring: {{ .Values.app.features.monitoring }}
+      resources:
+        limits:
+          memory: {{ .Values.app.resources.limits.memory | quote }}
+          cpu: {{ .Values.app.resources.limits.cpu | quote }}
+        requests:
+          memory: {{ .Values.app.resources.requests.memory | quote }}
+          cpu: {{ .Values.app.resources.requests.cpu | quote }}
+    database:
+      enabled: {{ .Values.database.enabled }}
+      host: {{ .Values.database.host | quote }}
+      port: {{ .Values.database.port }}

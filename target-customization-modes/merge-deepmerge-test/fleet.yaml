@@ -1,0 +1,57 @@
+defaultNamespace: merge-deepmerge-test
+helm:
+  chart: .
+
+targetCustomizationMode: AllMatches
+
+targetCustomizations:
+  # Base - sets defaults for all nested structures
+  - name: base
+    clusterSelector: {}
+    helm:
+      values:
+        app:
+          name: base-app
+          replicas: 1
+          features:
+            auth: true
+        database:
+          enabled: true
+          host: db.base.local
+
+  # Edge - partially overrides app.resources, adds logging feature
+  - name: edge
+    clusterSelector:
+      matchLabels:
+        edge: "true"
+    helm:
+      values:
+        app:
+          replicas: 2
+          features:
+            logging: true
+          resources:
+            limits:
+              memory: 256Mi
+            # Note: cpu limit not specified, should keep base value
+            # Note: requests not specified, should keep base values
+
+  # Monitoring - adds monitoring feature and overrides app name
+  - name: monitoring
+    clusterSelector:
+      matchLabels:
+        monitoring: "enabled"
+    helm:
+      values:
+        app:
+          name: monitored-app
+          replicas: 3
+          features:
+            monitoring: true
+          resources:
+            limits:
+              cpu: 500m
+              # Note: memory not specified, should use edge value (256Mi)
+        database:
+          port: 3306
+          # Note: host and enabled not specified, should use base values

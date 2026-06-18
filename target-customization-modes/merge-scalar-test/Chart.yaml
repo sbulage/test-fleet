@@ -1,0 +1,6 @@
+apiVersion: v2
+name: merge-scalar-test
+description: Test chart for scalar field merge behavior
+type: application
+version: 0.1.0
+appVersion: "1.0"

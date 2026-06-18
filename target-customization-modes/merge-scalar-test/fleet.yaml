@@ -1,0 +1,38 @@
+defaultNamespace: merge-test-base
+helm:
+  chart: .
+  releaseName: base-release
+
+targetCustomizationMode: AllMatches
+
+targetCustomizations:
+  # First customization - sets initial namespace and release name
+  - name: base
+    clusterSelector: {}
+    namespace: merge-test-first
+    helm:
+      releaseName: first-release
+      values:
+        message: "from-base"
+
+  # Second customization - matches edge label, should override namespace
+  - name: edge
+    clusterSelector:
+      matchLabels:
+        edge: "true"
+    namespace: merge-test-edge
+    helm:
+      values:
+        message: "from-edge"
+
+  # Third customization - matches monitoring label, should override both
+  - name: monitoring
+    clusterSelector:
+      matchLabels:
+        monitoring: "enabled"
+    namespace: merge-test-monitoring
+    helm:
+      releaseName: monitoring-release
+      values:
+        message: "from-monitoring"
+        replicaCount: 5

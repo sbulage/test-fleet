@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: merge-valuesfrom-test
+  labels:
+    app: merge-valuesfrom-test
+data:
+  config-base: {{ .Values.config.base | quote }}
+  config-edge: {{ .Values.config.edge | quote }}
+  config-monitoring: {{ .Values.config.monitoring | quote }}

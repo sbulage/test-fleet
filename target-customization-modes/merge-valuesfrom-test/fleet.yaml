@@ -1,0 +1,40 @@
+defaultNamespace: merge-valuesfrom-test
+helm:
+  chart: .
+
+targetCustomizationMode: AllMatches
+
+targetCustomizations:
+  # Base customization - references base-config ConfigMap
+  - name: base
+    clusterSelector: {}
+    helm:
+      valuesFrom:
+        - configMapKeyRef:
+            name: base-config
+            key: values.yaml
+            namespace: fleet-local
+
+  # Edge customization - references edge-config ConfigMap
+  - name: edge
+    clusterSelector:
+      matchLabels:
+        edge: "true"
+    helm:
+      valuesFrom:
+        - configMapKeyRef:
+            name: edge-config
+            key: values.yaml
+            namespace: fleet-local
+
+  # Monitoring customization - references monitoring-config ConfigMap
+  - name: monitoring
+    clusterSelector:
+      matchLabels:
+        monitoring: "enabled"
+    helm:
+      valuesFrom:
+        - configMapKeyRef:
+            name: monitoring-config
+            key: values.yaml
+            namespace: fleet-local

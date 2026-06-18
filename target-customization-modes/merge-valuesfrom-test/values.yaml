@@ -1,0 +1,4 @@
+config:
+  base: "default"
+  edge: "default"
+  monitoring: "default"
