@@ -1,0 +1,38 @@
+defaultNamespace: merge-test-base
+helm:
+  chart: .
+  releaseName: base-release
+
+targetCustomizationMode: AllMatches
+
+targetCustomizations:
+  # REVERSED ORDER: monitoring first (to test if Fleet beta.2 uses FIRST-matching)
+  - name: monitoring
+    clusterSelector:
+      matchLabels:
+        monitoring: "enabled"
+    namespace: merge-test-monitoring
+    helm:
+      releaseName: monitoring-release
+      values:
+        message: "from-monitoring"
+        replicaCount: 5
+
+  # edge second
+  - name: edge
+    clusterSelector:
+      matchLabels:
+        edge: "true"
+    namespace: merge-test-edge
+    helm:
+      values:
+        message: "from-edge"
+
+  # base last (matches all clusters with empty selector)
+  - name: base
+    clusterSelector: {}
+    namespace: merge-test-first
+    helm:
+      releaseName: first-release
+      values:
+        message: "from-base"
