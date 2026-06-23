@@ -6,26 +6,18 @@ helm:
 targetCustomizationMode: AllMatches
 
 targetCustomizations:
-  # First customization - sets initial namespace and release name
-  - name: base
-    clusterSelector: {}
-    namespace: merge-test-first
-    helm:
-      releaseName: first-release
-      values:
-        message: "from-base"
-
-  # Second customization - matches edge label, should override namespace
+ 
   - name: edge
     clusterSelector:
       matchLabels:
         edge: "true"
     namespace: merge-test-edge
     helm:
+      releaseName: edge-release
       values:
         message: "from-edge"
+        replicaCount: 2
 
-  # Third customization - matches monitoring label, should override both
   - name: monitoring
     clusterSelector:
       matchLabels:
