@@ -5,7 +5,6 @@ helm:
 targetCustomizationMode: AllMatches
 
 targetCustomizations:
-  # Base customization - references base-config ConfigMap
   - name: base
     clusterSelector: {}
     helm:
@@ -13,9 +12,7 @@ targetCustomizations:
         - configMapKeyRef:
             name: base-config
             key: values.yaml
-            namespace: fleet-default
 
-  # Edge customization - references edge-config ConfigMap
   - name: edge
     clusterSelector:
       matchLabels:
@@ -25,9 +22,7 @@ targetCustomizations:
         - configMapKeyRef:
             name: edge-config
             key: values.yaml
-            namespace: fleet-default
 
-  # Monitoring customization - references monitoring-config ConfigMap
   - name: monitoring
     clusterSelector:
       matchLabels:
@@ -37,4 +32,3 @@ targetCustomizations:
         - configMapKeyRef:
             name: monitoring-config
             key: values.yaml
-            namespace: fleet-default
