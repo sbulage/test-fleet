@@ -10,7 +10,7 @@ targetCustomizations:
   - name: edge
     clusterSelector:
       matchLabels:
-        edge: "true"
+        edge: "yes"
     namespace: merge-test-edge
     helm:
       releaseName: edge-release
