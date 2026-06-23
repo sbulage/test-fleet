@@ -13,7 +13,7 @@ targetCustomizations:
         - configMapKeyRef:
             name: base-config
             key: values.yaml
-            namespace: fleet-local
+            namespace: fleet-default
 
   # Edge customization - references edge-config ConfigMap
   - name: edge
@@ -25,7 +25,7 @@ targetCustomizations:
         - configMapKeyRef:
             name: edge-config
             key: values.yaml
-            namespace: fleet-local
+            namespace: fleet-default
 
   # Monitoring customization - references monitoring-config ConfigMap
   - name: monitoring
@@ -37,4 +37,4 @@ targetCustomizations:
         - configMapKeyRef:
             name: monitoring-config
             key: values.yaml
-            namespace: fleet-local
+            namespace: fleet-default
