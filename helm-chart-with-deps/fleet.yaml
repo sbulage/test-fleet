@@ -1,0 +1,6 @@
+# Fleet deployment configuration
+# This tells Fleet to deploy this as a Helm chart
+defaultNamespace: webapp
+
+helm:
+  releaseName: webapp-with-deps

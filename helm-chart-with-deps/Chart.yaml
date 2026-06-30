@@ -1,0 +1,16 @@
+apiVersion: v2
+name: webapp-with-deps
+description: A sample webapp with external Helm dependencies
+type: application
+version: 0.1.0
+appVersion: "1.0"
+
+# Dependencies from external Helm repositories
+# These will trigger Fleet to check helmRepoURLRegex
+dependencies:
+  - name: redis
+    version: "17.11.3"
+    repository: https://charts.bitnami.com/bitnami
+  - name: postgresql
+    version: "12.5.8"
+    repository: https://charts.bitnami.com/bitnami
