@@ -1,0 +1,18 @@
+defaultNamespace: donotdeploy-test
+
+targetCustomizationMode: FirstMatch
+
+targetCustomizations:
+  # FIRST: Exclude maintenance clusters (must be before catch-all)
+  - name: exclude-maintenance
+    clusterSelector:
+      matchLabels:
+        maintenance: "true"
+    doNotDeploy: true
+
+  # SECOND: Catch-all (deploy to everyone else)
+  - name: deploy-to-all
+    clusterSelector: {}
+    helm:
+      values:
+        message: "deployed-to-cluster"

@@ -1,0 +1,18 @@
+defaultNamespace: donotdeploy-test
+
+targetCustomizationMode: AllMatches
+
+targetCustomizations:
+  # Catch-all FIRST (position doesn't matter in AllMatches)
+  - name: deploy-to-all
+    clusterSelector: {}
+    helm:
+      values:
+        message: "deployed-to-cluster"
+
+  # Exclusion LAST (still works in AllMatches)
+  - name: exclude-maintenance
+    clusterSelector:
+      matchLabels:
+        maintenance: "true"
+    doNotDeploy: true

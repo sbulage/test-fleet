@@ -1,0 +1,4 @@
+apiVersion: v2
+name: donotdeploy-allmatches-test
+version: 0.1.0
+description: Test doNotDeploy with AllMatches mode
