@@ -1,5 +1,5 @@
 defaultNamespace: clustergroup-test
-
+targetCustomizationMode: FirstMatch
 targetCustomizations:
   - name: production-group
     clusterGroup: production
