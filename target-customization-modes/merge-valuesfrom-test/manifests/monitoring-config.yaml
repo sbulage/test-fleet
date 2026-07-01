@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: merge-valuesfrom-test
+  name: monitoring-config
+data:
+  values.yaml: |
+    message: "from-monitoring-config"
+    replicaCount: 5

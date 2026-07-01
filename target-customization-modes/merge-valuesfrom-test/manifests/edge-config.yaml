@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: merge-valuesfrom-test
+  name: edge-config
+data:
+  values.yaml: |
+    message: "from-edge-config"
+    replicaCount: 2

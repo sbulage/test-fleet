@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: merge-valuesfrom-test
+  name: base-config
+data:
+  values.yaml: |
+    message: "from-base-config"
+    replicaCount: 1
