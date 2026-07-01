@@ -1,0 +1,4 @@
+apiVersion: v2
+name: clustergroup-test
+version: 0.1.0
+description: Test clusterGroup targeting

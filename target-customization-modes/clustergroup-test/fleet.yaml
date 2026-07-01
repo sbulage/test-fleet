@@ -1,0 +1,16 @@
+defaultNamespace: clustergroup-test
+
+targetCustomizations:
+  - name: production-group
+    clusterGroup: production
+    helm:
+      values:
+        message: "deployed-to-production-group"
+        groupName: "production"
+
+  - name: staging-group
+    clusterGroup: staging
+    helm:
+      values:
+        message: "deployed-to-staging-group"
+        groupName: "staging"
