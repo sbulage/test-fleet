@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config-from-repo
+data:
+  source: "gitrepo-with-targetCustomizations"
+  message: "Hello from Fleet GitRepo"
+  test: "targetCustomizations.downstreamResources"
