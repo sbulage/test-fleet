@@ -1,0 +1,31 @@
+# fleet.yaml for targetCustomizations with downstreamResources test
+defaultNamespace: targetcustom-ns
+
+# Root-level downstreamResources
+downstreamResources:
+  - kind: ConfigMap
+    name: root-level-config
+
+targetCustomizations:
+  # Target 1: For clusters with label test.fleet.io/downstream-resources=true
+  - name: cluster-with-downstream
+    clusterSelector:
+      matchLabels:
+        test.fleet.io/downstream-resources: "true"
+
+    # These resources will be copied to the downstream cluster
+    downstreamResources:
+      - kind: ConfigMap
+        name: target-custom-config
+      - kind: Secret
+        name: my-app-config
+
+  # Target 2: For production clusters (example)
+  - name: production-cluster
+    clusterSelector:
+      matchLabels:
+        env: production
+
+    downstreamResources:
+      - kind: Secret
+        name: prod-secret
