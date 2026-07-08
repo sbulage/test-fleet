@@ -1,0 +1,21 @@
+defaultNamespace: gitrepo-dedup-test
+
+downstreamResources:
+  - kind: ConfigMap
+    name: shared-config
+  - kind: Secret
+    name: root-only-secret
+
+targetCustomizations:
+  - name: cluster-with-duplicates
+    clusterSelector:
+      matchLabels:
+        test.fleet.io/duplicate-test: "true"
+
+    downstreamResources:
+      - kind: ConfigMap
+        name: shared-config
+      - kind: Secret
+        name: shared-secret
+      - kind: ConfigMap
+        name: target-only-config
